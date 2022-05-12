@@ -2,60 +2,76 @@
 var getUserChoice = function (userInput) {
     userInput = userInput.toLowerCase();
     if (userInput === 'rock' || userInput === 'paper' || userInput === 'scissors') {
-        console.log(userInput);
+        return userInput;
     } else {
         console.log('Error');
     }
-}
+};
 
-// getUserChoice('PAper'.toLowerCase());
+// console.log(getUserChoice('paper'));
 
 var getComputerScience = function () {
     randomNumber = Math.floor(Math.random() * 3);
     if (randomNumber === 0) {
-        console.log('rock');
+        return 'rock';
     } else if (randomNumber === 1) {
-        console.log('paper');
+        return 'paper';
     } else if (randomNumber === 2) {
-        console.log('scissors');
+        return 'scissors';
     }
-}
-// getComputerScience();
+};
+// console.log(getComputerScience());
 
-var determineWinner = function (userInput, randomNumber) {
-    if (userInput === randomNumber) {
+var determineWinner = function (userChoice, computerChoice) {
+    if (userChoice === computerChoice) {
         return "The game was a tie";
     }
-    if (userInput === 'rock') {
-        if (randomNumber === 'paper') {
+    if (userChoice === 'rock') {
+        if (computerChoice === 'paper') {
             return 'Computer Wins! Paper kills rock';
-        } else if (randomNumber = 'scissors') {
-            return 'User Wins! Rock kills scissors';
+        }
+
+        if (computerChoice === 'scissors') {
+                return 'User Wins! Rock kills scissors';
         }
     }
-    if (userInput = 'paper') {
-        if (random = 'scissors') {
+    
+
+    if (userChoice ==='paper') {
+        if (computerChoice === 'scissors') {
             return 'Computer wins! Scissors cut paper';
-        } else if (randomNumber = 'rock') {
+        } 
+        
+        if (computerChoice ==='rock') {
             return 'User wins! Paper covers rock';
         }
     }
-    if (userInput = 'scissors') {
-        if (randomNumber = 'rock') {
-            return 'Comupter wins! Rock crushes scissors';
-        } else if (randomNumber = 'paper') {
+    if (userChoice = 'scissors') {
+        if (computerChoice === 'rock') {
+            return 'Computer wins! Scissors crush rock';
+        } 
+        
+        if (computerChoice === 'paper') {
             return 'User wins! Scissors cut paper';
         }
     }
-}
+};
        
-        
+// var userChoice = getUserChoice('scissors');
+// var computerChoice = getComputerScience();
+// console.log(userChoice);
+// console.log(computerChoice);
+
+// console.log(determineWinner(userChoice, computerChoice));
+
 // determineWinner(getUserChoice, getComputerScience);
 
 var playGame = function () {
-    userInput = getUserChoice('rock', 'paper', 'scissors');
-    randomNumber = getComputerScience();
-    console.log(determineWinner(userInput, randomNumber));
+    var userChoice = getUserChoice('scissors');
+    var computerChoice = getComputerScience();
+    console.log(userChoice);
+    console.log(computerChoice);
+    console.log(determineWinner(userChoice, computerChoice));
 }
 
 playGame();
